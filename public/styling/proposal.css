@@ -1,0 +1,9 @@
+#PageHeader {text-align: left;}
+#Center {text-align: center;}
+/*implements and indents a sub-bullet for a bulleted list.*/
+.SubBullet{
+    list-style-type: circle;
+    padding-bottom: 0;
+    margin-left:20px;
+}
+

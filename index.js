@@ -13,6 +13,9 @@ const port = process.env.port || 3000
 
 
 app.get('/', (req, res) => { res.render('index') })
+
+app.get('/proposal', (req, res) => { res.render('proposal') })
+
 app.listen(port, () => {
     console.log(`Server started listening on port: ${port}`)
 })

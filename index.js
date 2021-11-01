@@ -1,20 +1,24 @@
 const express = require('express')
 const expressHandlebars = require('express-handlebars')
+const handlers = require('./lib/handlers')
 
 const app = express()
 
 app.engine('handlebars', expressHandlebars({
     defaultLayout: 'main',
 }))
+
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
 app.use(express.static(__dirname + '/public'))
 app.set('view engine', 'handlebars')
 
 const port = process.env.port || 3000
 
 
-app.get('/', (req, res) => { res.render('index') })
+app.get('/', handlers.home)
 
-app.get('/proposal', (req, res) => { res.render('proposal') })
+app.get('/proposal', handlers.proposal)
 
 app.listen(port, () => {
     console.log(`Server started listening on port: ${port}`)

@@ -1,3 +1,45 @@
+body {
+    background-color: azure;
+    margin: 0;
+}
+
 h1 {
     text-align: center;
 }
+
+.ul-nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(70, 76, 194);
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    width: 100%;
+    
+}
+
+.li-nav {
+    float: left;
+    font-size: 20px;
+}
+
+.li-a-nav {
+    display: block;
+    color: rgb(181, 181, 182);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;    
+}
+
+li a:hover {
+    background-color: rgb(34, 34, 112);
+}
+
+.SubBullet{
+    list-style-type: circle;
+    padding-bottom: 0;
+    margin-left:20px;
+}
+

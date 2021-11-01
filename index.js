@@ -20,6 +20,8 @@ app.get('/', handlers.home)
 
 app.get('/proposal', handlers.proposal)
 
+app.get('/about', handlers.about)
+
 app.listen(port, () => {
     console.log(`Server started listening on port: ${port}`)
 })

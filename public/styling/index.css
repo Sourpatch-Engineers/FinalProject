@@ -7,6 +7,13 @@ h1 {
     text-align: center;
 }
 
+table, th, td {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+}
+
 .ul-nav {
     list-style-type: none;
     margin: 0;

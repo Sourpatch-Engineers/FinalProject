@@ -1,0 +1,67 @@
+<body>
+    <div>
+        <link rel="stylesheet" href="/styling/index.css"/>
+    </div>
+
+    <head>
+        <h1>Team Creation</h1>
+    </head>
+    
+    <div id="TeamName">
+        <label for="name">Team Name</label>
+        <input type="text" id="name">
+    </div>
+
+    <div id="ScrumMaster">
+        <label for="master">Scrum Master</label>
+        <input type="text" id="master">
+    </div>
+
+    <div id="MemberList">
+        <h1>Enter Members</h1>
+        <label for="firstMember">Name</label>
+        <input type="text" id="firstMember"></br>
+        <!--<label for="secondMember">Name</label>
+        <input type="text" id="secondMember"></br>
+        <label for="thirdMember">Name</label>
+        <input type="text" id="thirdMember"></br>
+        <label for="fourthMember">Name</label>
+        <input type="text" id="fourthMember"></br>
+        <label for="fifthMember">Name</label>
+        <input type="text" id="fifthMember"></br>-->
+    </div>
+
+    <div id="AddMember">
+        <button type="button" onclick="createMember()">Add a member</button>
+    </div>
+
+    <div id="SubmitButton">
+        <button type="button" id="SubmitButton" onclick="recordTeam()">Submit Team</button>
+    </div>
+
+    <p id="demo"></p>
+
+    <script>
+        function createMember() {
+            var input = document.createElement("input");
+            input.setAttribute('id', 'input');
+            input.setAttribute('type', 'text');
+            var parent = document.getElementById("MemberList");
+            parent.appendChild(input);
+        }
+
+        function recordTeam() {
+            var x = document.getElementsByTagName("input");
+            const members = [];
+            for(i = 0; i < x.length; i++) {
+                if (x[1].value != null){
+                    if (i > 0){
+                        members.push(x[i].value);
+                    }
+                    console.log(x[i].value);
+                }
+                console.log(members);
+            }
+        }
+    </script>
+</body>

@@ -19,6 +19,7 @@ const port = process.env.port || 3000
 app.get('/', handlers.home)
 
 app.get('/proposal', handlers.proposal)
+app.get('/team_form', handlers.team_form)
 
 app.get('/about', handlers.about)
 

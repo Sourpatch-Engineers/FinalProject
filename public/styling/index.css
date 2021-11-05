@@ -7,6 +7,13 @@ h1 {
     text-align: center;
 }
 
+table, th, td {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+}
+
 .ul-nav {
     list-style-type: none;
     margin: 0;
@@ -23,6 +30,7 @@ h1 {
 .li-nav {
     float: left;
     font-size: 20px;
+    
 }
 
 .li-a-nav {
@@ -30,7 +38,8 @@ h1 {
     color: rgb(181, 181, 182);
     text-align: center;
     padding: 14px 16px;
-    text-decoration: none;    
+    text-decoration: none;   
+    height: 30px; 
 }
 
 li a:hover {
@@ -43,3 +52,7 @@ li a:hover {
     margin-left:20px;
 }
 
+.logo {
+    width: 30px;
+    height: 30px;
+}

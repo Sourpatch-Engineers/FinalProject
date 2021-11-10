@@ -12,7 +12,8 @@ async function main() {
     await client.connect()
 
     //await listDB(client)
-    await loadMetaData('sourpatch engineers')
+    await insertMetaData('test_team', ['bryan', 'bill', 'joe'])
+    //await loadMetaData('sourpatch engineers')
   } catch(e) {
     console.error(e)
   } finally {
@@ -44,4 +45,21 @@ async function loadMetaData(teamname) {
   const query = {team_name: teamname}
   const team = await metatable.findOne(query)
   return team
+}
+
+async function insertMetaData(teamname, memberNames) {
+  const db = client.db('team_meta')
+  const metatable = db.collection('metatable')
+  const query = {team_name: teamname}
+  if(!(await metatable.findOne(query))) {
+    const numMembers = memberNames.length
+    const newFile = {
+      "team_name": teamname,
+      "member_names": memberNames,
+      "total_members": numMembers
+    }
+    const response = await metatable.insertOne(newFile)
+  } else {
+    console.log("THAT TEAM ALREADY EXISTS")
+  }
 }

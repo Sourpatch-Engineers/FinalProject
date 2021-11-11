@@ -3,25 +3,11 @@ const { MongoClient } = require('mongodb')
 const uri = "mongodb+srv://app_user:ibn9j5dxCFfiuBka@cluster0.ohmbu.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 const client = new MongoClient(uri)
 
-async function listDB() {
-  try {
-    await client.connect()
-    const dbList = await client.db().admin().listDatabases()
-    console.log("DB: ")
-    dbList.databases.forEach( db => {
-      console.log(`- ${db.name}`)
-    })
-  } catch(e) {
-    console.error(e)
-  } finally {
-    await client.close()
-  }
-}
-
 /**
  * 
- * @param {string} teamname the team you are searching for located in the database
+ * @param {string} teamname
  * @returns the team bson file within the db using the query of teamname
+ * @description takes the teamname and will return the file found inside the mondodb
  * @todo will be ids in the future rather than names
  */
 module.exports.loadMetaData = async function loadMetaData(teamname) {
@@ -41,6 +27,12 @@ module.exports.loadMetaData = async function loadMetaData(teamname) {
   }
 }
 
+/**
+ * 
+ * @param {string} teamname 
+ * @param {list} memberNames 
+ * @description inserts a new team inside the database with a list of members, duplicate errors are handled here as well. 
+ */
 module.exports.insertMetaData = async function insertMetaData(teamname, memberNames) {
 
   try {

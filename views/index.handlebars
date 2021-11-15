@@ -10,7 +10,25 @@
         </div>
 
         <div id="teamsTable">
-            {{{teamsTable}}}
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Team Name</th>
+                        <th>Team Leader</th>
+                        <th>Team Members</th>
+                    </tr>
+                </thead>
+
+                {{#each tableData}}
+                    <tr>
+                        <td>{{this.team_name}}</td>
+                        <td>{{this.scrum_master}}</td>
+                        <td>{{concat_members this.member_names}}</td>
+                    </tr>
+                {{/each}}
+
+            </table>
         </div>
         
     </div>

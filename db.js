@@ -29,6 +29,28 @@ module.exports.loadMetaData = async function loadMetaData(teamname) {
 
 /**
  * 
+ * @returns an array of all teams in the metatable
+ * @description returns all the teams in the table in an array format
+ * @todo 
+ */
+module.exports.loadAllData = async function loadAllData() {
+  try {
+    await client.connect()
+    const db = client.db('team_meta')
+    const metatable = db.collection('metatable')
+
+    const teams = await metatable.find().toArray()
+    console.log(teams)
+    return teams
+  } catch(e) {
+    console.error(e)
+  } finally {
+    await client.close()
+  }
+}
+
+/**
+ * 
  * @param {string} teamname 
  * @param {list} memberNames 
  * @description inserts a new team inside the database with a list of members, duplicate errors are handled here as well. 

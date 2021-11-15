@@ -18,7 +18,6 @@ module.exports.loadMetaData = async function loadMetaData(teamname) {
   
     const query = {team_name: teamname}
     const team = await metatable.findOne(query)
-    console.log(team)
     return team
   } catch(e) {
     console.error(e)
@@ -55,7 +54,7 @@ module.exports.loadAllData = async function loadAllData() {
  * @param {list} memberNames 
  * @description inserts a new team inside the database with a list of members, duplicate errors are handled here as well. 
  */
-module.exports.insertMetaData = async function insertMetaData(teamname, memberNames) {
+module.exports.insertMetaData = async function insertMetaData(teamname, memberNames, scrumMaster) {
 
   try {
     await client.connect()
@@ -63,15 +62,21 @@ module.exports.insertMetaData = async function insertMetaData(teamname, memberNa
     const metatable = db.collection('metatable')
     const query = {team_name: teamname}
     if(!(await metatable.findOne(query))) {
-      const numMembers = memberNames.length
-      const newFile = {
-        "team_name": teamname,
-        "member_names": memberNames,
-        "total_members": numMembers
+      if(memberNames.includes(scrumMaster)){
+        const numMembers = memberNames.length
+        const newFile = {
+          "team_name": teamname.toLowerCase().trim(),
+          "member_names": memberNames.toLowerCase().trim(),
+          "total_members": numMembers,
+          "scrum_master": scrumMaster.toLowerCase().trim()
+        }
+        const response = await metatable.insertOne(newFile)
+        console.log(`${newFile.team_name} created`)
+      } else {
+        console.error(`${scrumMaster} not found on ${teamname}`)
       }
-      const response = await metatable.insertOne(newFile)
     } else {
-      console.log("THAT TEAM ALREADY EXISTS")
+      console.error(`${teamname} already exists`)
     }
   } catch(e) {
     console.error(e)
@@ -80,3 +85,23 @@ module.exports.insertMetaData = async function insertMetaData(teamname, memberNa
   }
 }
 
+/**
+ * 
+ * @param {string} teamname 
+ * @description this will delete the file of the teamname specified
+ */
+module.exports.deleteMetaData = async function deleteMetaData(teamname) {
+  try {
+    await client.connect()
+    const db = client.db('team_meta')
+    const metatable = db.collection('metatable')
+    const query = {team_name: teamname}
+
+    const response = await metatable.deleteOne(query)
+    console.log(`${response.team_name} deleted`)
+  } catch (e) {
+    console.error(e)
+  } finally {
+    client.close()
+  }
+}

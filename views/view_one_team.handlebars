@@ -1,0 +1,19 @@
+<body>
+    <div>
+        <link rel="stylesheet" href="/styling/index.css"/>
+    </div>
+
+    <h1>{{team_name}}</h1>
+    <h2 style="text-align: center;">Scrum Master: {{scrum_master}}</h2>
+
+    <br> <br>
+
+    <div id="members_list" style="text-align: center;">
+        <ul>
+            {{#each member_names}}
+            <li>{{this}}</li>
+            {{/each}}
+        </ul>
+    </div>
+</body>
+

@@ -1,51 +1,11 @@
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<div class="div-view">
-    
-     <div>
-        <link rel="stylesheet" href="/styling/index.css"/>
-    </div>
-    
-    <div>
-        <h1>Home Page</h1>
-    </div>
 
-    
-    <div class = "Center">
-        <a href="/team_form"><button>Create Team</button></a>
-    </div>
-    
-
-    
-    <div id="teamsTable">
-        <table>
-
-            <thead>
-                <tr>
-                    <th>Team Name</th>
-                    <th>Team Leader</th>
-                    <th>Team Members</th>
-                </tr>
-            </thead>
-
-            {{#each tableData}}
-                <tr>
-                    <td>{{this.team_name}}</td>
-                    <td>{{this.scrum_master}}</td>
-                    <td>{{concat_members this.member_names}}</td>
-                </tr>
-            {{/each}}
-
-        </table>
-    </div>
-    
-</div>
-
-<!-- LOGIN FORM CODE IF WE CAN'T GET GOOGLE AUTHENTICATION WORKING
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title> Login Page </title>
 <style> 
 Body {
   font-family: Helvetica, sans-serif;
+  background-color: pink;
 }
 button { 
        background-color: #4CAF50; 
@@ -82,7 +42,9 @@ button {
         background-color: lightblue;
     } 
 </style> 
-
+<div>
+    <link rel="stylesheet" href="/styling/index.css"/
+</div>
 </head>  
 <body>  
     <center> <h1> Student Login Form </h1> </center> 
@@ -93,11 +55,9 @@ button {
             <label>Password : </label> 
             <input type="password" placeholder="Enter Password" name="password" required>
             <button type="submit">Login</button> 
-            <a href="/team_form"><button>Create Team</button></a>
             <input type="checkbox" checked="checked"> Remember me 
             <button type="button" class="cancelbtn"> Cancel</button> 
             Forgot <a href="#"> password? </a> 
         </div> 
     </form>   
-</body>
---> 
+</body>   

@@ -22,6 +22,7 @@ app.get('/proposal', handlers.proposal)
 app.get('/team_form', handlers.team_form)
 
 app.get('/about', handlers.about)
+app.get('/view_teams', handlers.view_teams)
 
 app.listen(port, () => {
     console.log(`Server started listening on port: ${port}`)

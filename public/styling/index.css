@@ -1,54 +1,128 @@
 body {
-    background-color: azure;
+    background-color:rgb(42,0,128);
+    font-family:'Segoe UI';
     margin: 0;
 }
 
 h1 {
     text-align: center;
+    color:rgb(255,213,0);
 }
 
-table, th, td {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    border: 1px solid black;
+.center { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
 }
 
-thead {
-    background-color: azure;
-}
-
+/*
+-------------------------- NAV BAR ------------------------
+*/
 .ul-nav {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: rgb(70, 76, 194);
+    background-color: rgb(255,213,0);
     position: -webkit-sticky; /* Safari */
     position: sticky;
     top: 0;
     width: 100%;
+    box-shadow: 0 0 20px rgb(0,0,0);
     
 }
 
 .li-nav {
     float: left;
     font-size: 20px;
-    
 }
 
 .li-a-nav {
     display: block;
-    color: rgb(181, 181, 182);
+    color: rgb(42,0,128);
     text-align: center;
     padding: 14px 16px;
-    text-decoration: none;   
-    height: 30px; 
+    text-decoration: none;
+    transition-duration:.4s;    
 }
 
 li a:hover {
-    background-color: rgb(34, 34, 112);
+    background-color: rgb(42,0,128);
+    color: rgb(255,213,0);
+    transform:scale(1.1)
 }
+
+/* 
+------------------------------- BUTTONS ----------------------------------
+*/
+
+#butt{
+    border:thick solid rgb(255,213,0); 
+    background-color:rgb(42,0,128);
+    color:rgb(255,213,0);
+    border-radius:10px;
+    text-align: center; 
+    font-size:28px; 
+    padding: 20px; 
+    width: 200px;
+    height: 100px; 
+    margin: 5px;
+    transition-duration: 0.4s;
+    left:48%;
+    margin:15px;
+    box-shadow: 0 0 20px rgb(0,0,0);
+}
+
+#butt:hover{
+    transform:scale(1.1); 
+    font-weight:bold;
+    color:rgb(42,0,128);
+    border-color:rgb(42,0,128);
+    background-color:rgb(255,213,0);
+}
+
+/*
+-------------------------------------------- TABLE --------------------------------------
+*/
+
+table { 
+    border-collapse: collapse;
+    border:thin solid rgb(255,213,0);
+    border-radius:5px 5px 0 0;
+    overflow:hidden;
+    margin: 25px 0;
+    min-width: 400 px; 
+    box-shadow: 0 0 20px rgb(0,0,0);
+    display:block;
+    width:75%
+}
+
+thead {
+    background-color: rgb(255,213,0);
+    color:rgb(42,0,128); 
+    text-align: left;
+}
+
+th, td {
+    padding: 12px 15px;
+    width:2.5%;
+    transition-duration:.4s;
+}
+
+tbody{
+    border-bottom: thin solid rgb(255,213,0);
+    color:rgb(255,213,0)
+}
+
+tr:nth-of-type(even) {
+    background-color:rgb(48, 24, 114);
+}
+
+tr:hover {
+    font-weight:bold;
+    box-shadow: 0 0 20px rgb(75,75,75);
+}
+
 
 .SubBullet{
     list-style-type: circle;
@@ -60,6 +134,4 @@ li a:hover {
     width: 30px;
     height: 30px;
 }
-.Center {
-    text-align: center;
-}
+

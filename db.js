@@ -66,7 +66,7 @@ module.exports.insertMetaData = async function insertMetaData(teamname, memberNa
         const numMembers = memberNames.length
         const newFile = {
           "team_name": teamname.toLowerCase().trim(),
-          "member_names": memberNames.toLowerCase().trim(),
+          "member_names": memberNames,
           "total_members": numMembers,
           "scrum_master": scrumMaster.toLowerCase().trim()
         }

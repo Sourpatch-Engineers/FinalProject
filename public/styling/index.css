@@ -1,3 +1,7 @@
+/*
+--------------------------------- GENERAL -----------------------------------
+*/
+
 body {
     background-color:rgb(42,0,128);
     font-family:'Segoe UI';
@@ -18,6 +22,7 @@ h1 {
 /*
 -------------------------- NAV BAR ------------------------
 */
+
 .ul-nav {
     list-style-type: none;
     margin: 0;
@@ -122,6 +127,17 @@ tr:hover {
     font-weight:bold;
     box-shadow: 0 0 20px rgb(75,75,75);
 }
+
+/*
+----------------------------------------------- ABOUT PAGE ------------------------------------
+*/
+
+#about {
+    color:rgb(255,213,0);
+    margin: 0px 60px;
+}
+
+
 
 
 .SubBullet{

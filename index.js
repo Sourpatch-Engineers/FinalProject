@@ -23,6 +23,11 @@ app.get('/team_form', handlers.team_form)
 
 app.get('/about', handlers.about)
 
+app.get('/view_teams', handlers.view_teams)
+app.get('/view_teams/:teamName', handlers.view_one_team)
+app.get('/login', handlers.login)
+app.post('/team_portal', handlers.team_portal)
+
 app.listen(port, () => {
     console.log(`Server started listening on port: ${port}`)
 })

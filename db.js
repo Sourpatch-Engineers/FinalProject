@@ -52,6 +52,7 @@ module.exports.loadAllData = async function loadAllData() {
  * 
  * @param {string} teamname 
  * @param {list} memberNames 
+ * @param {string} scrumMaster
  * @description inserts a new team inside the database with a list of members, duplicate errors are handled here as well. 
  */
 module.exports.insertMetaData = async function insertMetaData(teamname, memberNames, scrumMaster) {

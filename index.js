@@ -20,6 +20,8 @@ app.get('/', handlers.home)
 
 app.get('/proposal', handlers.proposal)
 app.get('/team_form', handlers.team_form)
+app.post('/team-form/complete', handlers.create_team)
+
 
 app.get('/about', handlers.about)
 

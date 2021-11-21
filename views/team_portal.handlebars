@@ -1,0 +1,29 @@
+<body>
+     <div>
+        <link rel="stylesheet" href="/styling/index.css"/>
+    </div>
+    
+    <div>
+        <h1>{{team_name}}</h1>
+        <br>
+        <h1>Product Owner: {{product_owner}}</h1>
+    </div>
+
+    <div class = 'center' id="teamsTable">
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Team Members</th>
+                </tr>
+            </thead>
+
+            {{#each member_names}}
+                <tr>
+                    <td>{{this}}</td>
+                </tr>
+            {{/each}}
+        </table>
+    </div>
+
+</body>

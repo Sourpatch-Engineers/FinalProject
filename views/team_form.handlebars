@@ -1,4 +1,5 @@
 <body>
+    <div class="div-view" style="text-align:center;">
     <div>
         <link rel="stylesheet" href="/styling/index.css"/>
     </div>
@@ -7,40 +8,32 @@
         <h1>Team Creation</h1>
     </head>
     
+    <form action="/team-form/complete?form=teamform" method="post" id='team_form'>
     <div id="TeamName">
-        <label for="name">Team Name</label>
-        <input type="text" id="name">
+        <label for="name"><div style = "color: rgb(255,213,0);">Team Name</div></label>
+        <input type="text" id="name" name="team">
     </div>
 
     <div id="ScrumMaster">
-        <label for="master">Scrum Master</label>
-        <input type="text" id="master">
+        <label for="master"><div style = "color: rgb(255,213,0);">Scrum Master</div></label>
+        <input type="text" id="master" name="master">
     </div>
 
     <div id="MemberList">
         <h1>Enter Members</h1>
-        <label for="firstMember">Name</label>
+        <label for="firstMember"><div style = "color: rgb(255,213,0);">Member Name</div></label>
         <input type="text" id="firstMember"></br>
-        <!--<label for="secondMember">Name</label>
-        <input type="text" id="secondMember"></br>
-        <label for="thirdMember">Name</label>
-        <input type="text" id="thirdMember"></br>
-        <label for="fourthMember">Name</label>
-        <input type="text" id="fourthMember"></br>
-        <label for="fifthMember">Name</label>
-        <input type="text" id="fifthMember"></br>-->
     </div>
 
     <div id="AddMember">
         <button type="button" onclick="createMember()">Add a member</button>
     </div>
 
+    <input type="hidden" id="members" name="members"></p>
+
     <div id="SubmitButton">
-        <button type="button" id="SubmitButton" onclick="recordTeam()">Submit Team</button>
-    </div>
-
-    <p id="demo"></p>
-
+            <button id="butt" type="submit" name="submit" value="Create Team" onclick="recordTeam()">Create Team</button>                    
+    
     <script>
         function createMember() {
             var input = document.createElement("input");
@@ -48,20 +41,28 @@
             input.setAttribute('type', 'text');
             var parent = document.getElementById("MemberList");
             parent.appendChild(input);
+            linebreak = document.createElement("br");
+            parent.appendChild(linebreak);
+            
         }
 
         function recordTeam() {
             var x = document.getElementsByTagName("input");
             const members = [];
             for(i = 0; i < x.length; i++) {
-                if (x[1].value != null){
-                    if (i > 0){
+                if (x[i].value != "") {
+                    if (i > 0 || i == x.length-2){
                         members.push(x[i].value);
                     }
-                    console.log(x[i].value);
                 }
-                console.log(members);
             }
+            document.getElementById("members").value = members
         }
     </script>
+    
+    </form>
+    </div>
+    </div>
+    
+    
 </body>

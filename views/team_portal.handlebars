@@ -38,6 +38,7 @@
                     <tr>
                         <th>Members</th>
                         <th>Star Votes</th>
+                        <th>Scrum Sprint Star</th>
                     </tr>
                 </thead>
 
@@ -45,7 +46,10 @@
                     <tr>
                         <td>{{@key}}</td>
                         <td>{{this}}</td>
-                        <td>></button></td>
+                        <td>
+                        <input type="checkbox" id="mvp_vote">
+                        </td>
+                    
                     </tr>
                 {{/each}}
             </table>

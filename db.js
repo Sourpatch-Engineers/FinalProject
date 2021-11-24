@@ -106,3 +106,20 @@ module.exports.deleteMetaData = async function deleteMetaData(teamname) {
     client.close()
   }
 }
+
+module.exports.new_team = async function new_team() {
+  try {
+        await client.connect()
+        const db = client.db('team_meta')
+        const metatable = db.collection('metatable')
+
+        const query = {team_name: teamname}
+        const team = await metatable.findOne(query)
+    
+
+  } catch (e) {
+    console.error(e)
+  } finally {
+    client.close()
+  }
+}

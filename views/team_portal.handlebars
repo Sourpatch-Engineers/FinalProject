@@ -25,5 +25,43 @@
             {{/each}}
         </table>
     </div>
+    <hr>
+
+    <h1>Sprints</h1>   
+    
+        
+    {{#each sprints}}
+        <div class = 'center'>
+            <table>
+                <caption>Sprint {{@key}}</caption>
+                <thead>
+                    <tr>
+                        <th>Members</th>
+                        <th>Star Votes</th>
+                        <th>Scrum Sprint Star</th>
+                    </tr>
+                </thead>
+
+                {{#each this}}
+                    <tr>
+                        <td>{{@key}}</td>
+                        <td>{{this}}</td>
+                        <td>
+                        <input type="checkbox" id="mvp_vote">
+                        </td>
+                    
+                    </tr>
+                {{/each}}
+            </table>
+        </div>
+        <h2>Scrum Star: "NAME"</h2>
+        <hr>
+        
+        
+    {{/each}}
+
+    <div class = 'center'>
+        <button id="butt" type='submit' name='submit'>New Sprint</button>
+    </div>
 
 </body>

@@ -1,13 +1,21 @@
 const express = require('express')
 const router = express.Router()
 const {ensureAuth} = require('../middleware/auth')
+const db = require("../db.js")
 
 /**
  * @description main page / home page
  * @route GET /
  */
 router.get('/', (req, res) => {
-    res.render('index')
+    db.loadAllTeams().then( result => {
+        console.log(result)
+        res.render('index', {
+            tableData: result.map(result => result.toObject())
+        })
+    })
+    
+    
 })
 
 /**

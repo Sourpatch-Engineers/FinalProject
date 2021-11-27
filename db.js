@@ -20,12 +20,8 @@ module.exports.openConnectionDB = async function openConnectionDB() {
  */
 module.exports.loadTeam = async function loadTeam(teamname) {
     const query = {teamName: teamname}
-    TeamM.findOne(query, function(err, team) {
-      if(err)
-        console.error(err)
-      else
-        return team
-    })
+    var data = TeamM.findOne(query)
+    return data
 }
 
 /**
@@ -35,8 +31,8 @@ module.exports.loadTeam = async function loadTeam(teamname) {
  * @todo 
  */
 module.exports.loadAllTeams = async function loadAllTeams() {
-  console.log(TeamM.find())
-    return TeamM.find()
+  var query = TeamM.find()
+  return query
 }
 
 /**

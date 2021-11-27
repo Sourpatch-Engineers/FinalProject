@@ -16,8 +16,8 @@ const TeamSchema = new mongoose.Schema({
     totalMembers: {
         type: Number,
         required: true
-    },
-    sprints: {}
+    }
+    
 })
 
 module.exports = mongoose.model('Team', TeamSchema)

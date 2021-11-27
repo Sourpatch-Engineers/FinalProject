@@ -19,15 +19,15 @@
             {{#each tableData}}
                 <tr>
                     
-                    <td>{{this.team_name}}</td>
-                    <td>{{this.scrum_master}}</td>
-                    <td>{{concat_members this.member_names}}</td>
+                    <td>{{this.teamName}}</td>
+                    <td>{{this.scrumMaster}}</td>
+                    <td>{{this.members}}</td>
                     <td>
                         <form method="POST" action="/team_portal">
                             <input type="hidden" 
-                            id = "team_name"
-                            name="team_name"
-                            value="{{this.team_name}}"
+                            id = "teamName"
+                            name="teamName"
+                            value="{{this.teamName}}"
                             >
                             <input id="butt" type="submit"
                             name="submit"

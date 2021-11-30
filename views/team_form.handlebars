@@ -9,30 +9,31 @@
     </head>
     
     <form action="/team-form/complete?form=teamform" method="post" id='team_form'>
-    <div id="TeamName">
-        <label for="name"><div style = "color: rgb(255,213,0);">Team Name</div></label>
-        <input type="text" id="name" name="team">
+    <div id="TeamName" class = 'center'>
+        <input type = 'text' id = 'textbox' class = 'center textbox'
+         placeholder='Enter team name'>
     </div>
 
-    <div id="ScrumMaster">
-        <label for="master"><div style = "color: rgb(255,213,0);">Scrum Master</div></label>
-        <input type="text" id="master" name="master">
+    <div id="ScrumMaster" class = 'center'>
+        <input type = 'text' id = 'textbox' class = 'center textbox'
+         placeholder="Enter scrum master">
     </div>
 
-    <div id="MemberList">
-        <h1>Enter Members</h1>
-        <label for="firstMember"><div style = "color: rgb(255,213,0);">Member Name</div></label>
-        <input type="text" id="firstMember"></br>
+    <div id="MemberList" class='center'>
+        <input type = 'text' id = 'textbox' class = 'center textbox' 
+        onkeyup='AddMember(event)' placeholder='Enter member name'>
     </div>
 
-    <div id="AddMember">
-        <button type="button" onclick="createMember()">Add a member</button>
+    <div id="AddMember" class = 'center'>
+        <button type="button" id = 'flatbutt' class = 'center'
+         onclick="createMember()">Add member</button>
     </div>
 
     <input type="hidden" id="members" name="members"></p>
 
-    <div id="SubmitButton">
-            <button id="butt" type="submit" name="submit" value="Create Team" onclick="recordTeam()">Create Team</button>                    
+    <div id="SubmitButton" class = 'center'>
+            <button type="submit" name="submit" class = 'center'
+             onclick="recordTeam()">Create Team</button>                    
     
     <script>
         function createMember() {

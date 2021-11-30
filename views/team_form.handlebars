@@ -26,20 +26,23 @@
 
     <div id="AddMember" class = 'center'>
         <button type="button" id = 'flatbutt' class = 'center'
-         onclick="createMember()">Add member</button>
+         onclick="CreateMember()">Add member</button>
     </div>
 
     <input type="hidden" id="members" name="members"></p>
 
     <div id="SubmitButton" class = 'center'>
             <button type="submit" name="submit" class = 'center'
-             onclick="recordTeam()">Create Team</button>                    
+             onclick="RecordTeam()">Create Team</button>                    
     
     <script>
-        function createMember() {
+        function CreateMember() {
             var input = document.createElement("input");
-            input.setAttribute('id', 'input');
+            input.setAttribute('id', 'textbox');
             input.setAttribute('type', 'text');
+            input.setAttribute('class', 'center textbox');
+            input.setAttribute('onkeyup', 'Addmember(event)');
+            input.setAttribute('placeholder', 'Enter member name');
             var parent = document.getElementById("MemberList");
             parent.appendChild(input);
             linebreak = document.createElement("br");
@@ -47,7 +50,47 @@
             
         }
 
-        function recordTeam() {
+        /*
+        function AddMember(event){
+            if (event.keyCode == 13) {
+                var input = document.createElement("input");
+                input.setAttribute('id', 'textbox');
+                input.setAttribute('type', 'text');
+                input.setAttribute('class', 'center textbox');
+                input.setAttribute('onkeyup', 'AddMember(event)');
+                input.setAttribute('placeholder', 'Enter member name');
+                var parent = document.querySelector("#MemberList");
+                parent.appendChild(input);
+                linebreak = document.createElement("br");
+                parent.appendChild(linebreak);
+            }
+        }
+        */
+
+        /*
+        function ValidateEntries(){
+            textList = document.querySelectorAll('.textbox');
+            submit = true;  
+            for (let i = 0; i < textList.length; i++) {
+                if (textList[i].value == "")
+                {
+                    textList[i].id = 'textboxerror';
+                    textList[i].placeholder = 'cant enter empty field';
+                    textList[i].value = '';
+                    submit = false;
+                }
+                else if (textList[i].id == 'textboxerror')
+                {
+                    textList[i].id = 'textbox';
+                    textList[i].placeholder = 'enter text here'; 
+                }
+            }
+            if (submit == true) {
+                RecordTeam();
+            }
+        }
+        */
+        function RecordTeam() {
             var x = document.getElementsByTagName("input");
             const members = [];
             for(i = 0; i < x.length; i++) {

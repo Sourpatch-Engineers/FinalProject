@@ -98,9 +98,20 @@ button:hover{
 }
 
 #flatbutt{
-    margin:4px;
-    height:30px;
-    font-size:18px;
+    border:thick solid rgb(255,213,0); 
+    background-color:rgb(42,0,128);
+    color:rgb(255,213,0);
+    border-radius:10px;
+    text-align: center; 
+    font-size:18px; 
+    padding: 20px; 
+    width: 200px;
+    height: 30px; 
+    margin: 4px;
+    transition-duration: 0.4s;
+    left:48%;
+    margin:15px;
+    box-shadow: 0 0 20px rgb(0,0,0);
 }
 
 /*

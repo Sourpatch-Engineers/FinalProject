@@ -9,36 +9,40 @@
     </head>
     
     <form action="/team-form/complete?form=teamform" method="post" id='team_form'>
-    <div id="TeamName">
-        <label for="name"><div style = "color: rgb(255,213,0);">Team Name</div></label>
-        <input type="text" id="name" name="team">
+    <div id="TeamName" class = 'center'>
+        <input type = 'text' id = 'textbox' class = 'center textbox'
+         placeholder='Enter team name'>
     </div>
 
-    <div id="ScrumMaster">
-        <label for="master"><div style = "color: rgb(255,213,0);">Scrum Master</div></label>
-        <input type="text" id="master" name="master">
+    <div id="ScrumMaster" class = 'center'>
+        <input type = 'text' id = 'textbox' class = 'center textbox'
+         placeholder="Enter scrum master">
     </div>
 
-    <div id="MemberList">
-        <h1>Enter Members</h1>
-        <label for="firstMember"><div style = "color: rgb(255,213,0);">Member Name</div></label>
-        <input type="text" id="firstMember"></br>
+    <div id="MemberList" class='center'>
+        <input type = 'text' id = 'textbox' class = 'center textbox' 
+        onkeyup='AddMember(event)' placeholder='Enter member name'>
     </div>
 
-    <div id="AddMember">
-        <button type="button" onclick="createMember()">Add a member</button>
+    <div id="AddMember" class = 'center'>
+        <button type="button" id = 'flatbutt' class = 'center'
+         onclick="CreateMember()">Add member</button>
     </div>
 
     <input type="hidden" id="members" name="members"></p>
 
-    <div id="SubmitButton">
-            <button id="butt" type="submit" name="submit" value="Create Team" onclick="recordTeam()">Create Team</button>                    
+    <div id="SubmitButton" class = 'center'>
+            <button type="submit" name="submit" class = 'center'
+             onclick="RecordTeam()">Create Team</button>                    
     
     <script>
-        function createMember() {
+        function CreateMember() {
             var input = document.createElement("input");
-            input.setAttribute('id', 'input');
+            input.setAttribute('id', 'textbox');
             input.setAttribute('type', 'text');
+            input.setAttribute('class', 'center textbox');
+            input.setAttribute('onkeyup', 'Addmember(event)');
+            input.setAttribute('placeholder', 'Enter member name');
             var parent = document.getElementById("MemberList");
             parent.appendChild(input);
             linebreak = document.createElement("br");
@@ -46,7 +50,47 @@
             
         }
 
-        function recordTeam() {
+        /*
+        function AddMember(event){
+            if (event.keyCode == 13) {
+                var input = document.createElement("input");
+                input.setAttribute('id', 'textbox');
+                input.setAttribute('type', 'text');
+                input.setAttribute('class', 'center textbox');
+                input.setAttribute('onkeyup', 'AddMember(event)');
+                input.setAttribute('placeholder', 'Enter member name');
+                var parent = document.querySelector("#MemberList");
+                parent.appendChild(input);
+                linebreak = document.createElement("br");
+                parent.appendChild(linebreak);
+            }
+        }
+        */
+
+        /*
+        function ValidateEntries(){
+            textList = document.querySelectorAll('.textbox');
+            submit = true;  
+            for (let i = 0; i < textList.length; i++) {
+                if (textList[i].value == "")
+                {
+                    textList[i].id = 'textboxerror';
+                    textList[i].placeholder = 'cant enter empty field';
+                    textList[i].value = '';
+                    submit = false;
+                }
+                else if (textList[i].id == 'textboxerror')
+                {
+                    textList[i].id = 'textbox';
+                    textList[i].placeholder = 'enter text here'; 
+                }
+            }
+            if (submit == true) {
+                RecordTeam();
+            }
+        }
+        */
+        function RecordTeam() {
             var x = document.getElementsByTagName("input");
             const members = [];
             for(i = 0; i < x.length; i++) {

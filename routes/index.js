@@ -8,14 +8,22 @@ const db = require("../db.js")
  * @route GET /
  */
 router.get('/', (req, res) => {
+    var logged;
+    if(req.isAuthenticated()) {
+        logged = 'logged-in'
+    } else {
+        logged = 'main'
+    }
+    
     db.loadAllTeams().then( result => {
         console.log(result)
         res.render('index', {
+            layout: logged,
             tableData: result.map(result => result.toObject())
         })
+        
+    
     })
-    
-    
 })
 
 /**
@@ -27,6 +35,27 @@ router.get('/team_portal', ensureAuth, (req, res) => {
     res.render('team_portal', {
         layout: 'logged-in',
         name: req.user.displayName
+    })
+})
+
+/**
+ * @description View Teams
+ * @route Get /view_teams
+ * @param @param ensureAuth middleware that will not allow any unauthenticated users through but redirect them to landing page.
+ */
+router.get('/view_teams', ensureAuth, (req, res) => {
+    var logged;
+    if(req.isAuthenticated()) {
+        logged = 'logged-in'
+    } else {
+        logged = 'main'
+    }
+    db.loadAllTeams().then(result => {
+        res.render('view_teams',{
+            layout: logged,
+            tableData: result.map(result => result.toObject())
+            
+        })
     })
 })
 

@@ -16,6 +16,12 @@ const TeamSchema = new mongoose.Schema({
     totalMembers: {
         type: Number,
         required: true
+    },
+
+    sprints: {
+        stars: { key: String, value: Number}
+        
+
     }
     
 })

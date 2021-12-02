@@ -60,8 +60,12 @@
         
     {{/each}}
 
+    <form action="/new_sprint" method="post">
     <div class = 'center'>
-        <button id="butt" type='submit' name='submit'>New Sprint</button>
+        <input type="hidden" id="members" name="teamName" value="{{team_name}}"></p>
+
+        <button type="submit" name="submit" class = 'center'>New Sprint</button>
     </div>
+    </form>
 
 </body>

@@ -55,6 +55,7 @@ app.use('/', require('./routes/index'))
 app.use('/auth', require('./routes/auth'))
 app.use('/view_teams', require('./routes/index'))
 
+
 app.get('/proposal', handlers.proposal)
 app.get('/team_form', handlers.team_form)
 app.post('/team-form/complete', handlers.create_team)
@@ -66,7 +67,7 @@ app.get('/about', handlers.about)
 app.get('/view_teams/:teamName', handlers.view_one_team)
 app.get('/login', handlers.login)
 app.post('/team_portal', handlers.team_portal)
-app.get('/new-team', handlers.new_team)
+app.post('/new_sprint', handlers.new_sprint)
 
 const port = process.env.port || 3000
 app.listen(port, () => {

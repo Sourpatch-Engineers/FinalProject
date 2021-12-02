@@ -59,4 +59,5 @@ router.get('/view_teams', ensureAuth, (req, res) => {
     })
 })
 
+
 module.exports = router

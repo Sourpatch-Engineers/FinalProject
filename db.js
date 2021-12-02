@@ -52,7 +52,6 @@ module.exports.insertTeam = async function insertTeam(teamname, memberEmails, sc
         "members": memberEmails,
         "scrumMaster": scrumMasterEmail.toLowerCase().trim(),
         "totalMembers": numMembers,
-        "sprints": {}
         })
         newFile.save(function(err, team) {
           if(err)
@@ -64,6 +63,24 @@ module.exports.insertTeam = async function insertTeam(teamname, memberEmails, sc
       console.error(`${teamname} already exists`)
     }
 }
+
+/**
+ * @description adds new sprint to the team
+ * @param {string} teamname 
+ * @param {int} sprint number
+ */
+ module.exports.new_sprint = async function new_sprint(teamname, sprint_number, members, scrumMaster) {
+  
+  TeamM.findOneAndUpdate({teamName: teamname}, { $push: {sprints:{'stars': {$each: {members}}}}},
+  function (error, success) {
+    if (error) {
+      console.log(error)
+    } else {
+      console.log(success)
+    }
+  })
+
+ }
 
 /**
  * 

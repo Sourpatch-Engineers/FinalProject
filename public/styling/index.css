@@ -53,6 +53,11 @@ caption {
     font-size: 20px;
 }
 
+.li-nav-right {
+    float: right;
+    font-size: 20px;
+}
+
 .li-a-nav {
     display: block;
     color: rgb(42,0,128);

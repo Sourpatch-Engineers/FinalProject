@@ -69,9 +69,9 @@ module.exports.insertTeam = async function insertTeam(teamname, memberEmails, sc
  * @param {string} teamname 
  * @param {int} sprint number
  */
- module.exports.new_sprint = async function new_sprint(teamname, sprint_number, members, scrumMaster) {
+ module.exports.new_sprint = async function new_sprint(teamname, memberData) {
   
-  TeamM.findOneAndUpdate({teamName: teamname}, { $push: {sprints:{'stars': {$each: {members}}}}},
+  TeamM.findOneAndUpdate({teamName: teamname}, { $push: {sprints:{'stars': memberData}}},
   function (error, success) {
     if (error) {
       console.log(error)

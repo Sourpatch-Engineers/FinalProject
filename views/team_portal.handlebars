@@ -29,26 +29,26 @@
 
     <h1>Sprints</h1>   
     
-        
     {{#each sprints}}
         <div class = 'center'>
             <table>
-                <caption>Sprint {{@key}}</caption>
+                <caption>Sprint {{@index}}</caption>
                 <thead>
                     <tr>
                         <th>Members</th>
                         <th>Star Votes</th>
                         <th>Scrum Sprint Star</th>
+                        <th>Story Points</th>
                     </tr>
                 </thead>
-
-                {{#each this}}
+                {{#each stars}}
                     <tr>
-                        <td>{{@key}}</td>
-                        <td>{{this}}</td>
+                        <td>{{name}}</td>
+                        <td>{{stars}}</td>
                         <td>
                         <input type="checkbox" id="mvp_vote">
                         </td>
+                        <td><input type="text" value={{points}}></td>
                     
                     </tr>
                 {{/each}}
@@ -56,8 +56,6 @@
         </div>
         <h2>Scrum Star: "NAME"</h2>
         <hr>
-        
-        
     {{/each}}
 
     <form action="/new_sprint" method="post">

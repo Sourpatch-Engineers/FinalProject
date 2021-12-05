@@ -19,9 +19,7 @@ const TeamSchema = new mongoose.Schema({
     },
 
     sprints: {
-        stars: { key: String, value: Number}
-        
-
+        type: Object
     }
     
 })

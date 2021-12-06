@@ -19,7 +19,7 @@ const TeamSchema = new mongoose.Schema({
     },
 
     sprints: {
-        type: Object
+        type: Array,
     }
     
 })

@@ -2,6 +2,7 @@
 const mongoose = require('mongoose')
 const UserM = require('./models/User')
 const TeamM = require('./models/Team')
+const User = require('./models/User')
 
 
 module.exports.openConnectionDB = async function openConnectionDB() {
@@ -42,17 +43,19 @@ module.exports.loadAllTeams = async function loadAllTeams() {
  * @param {string} scrumMaster
  * @description inserts a new team inside the database with a list of members, duplicate errors are handled here as well. 
  */
-module.exports.insertTeam = async function insertTeam(teamname, memberEmails, scrumMasterEmail) {
-
+module.exports.insertTeam = async function insertTeam(teamname, memberEmails, scrumMasterEmail, counter) {
+    var validate = false
     const query = {teamName: teamname}
     if(!(await TeamM.findOne(query))) {
+      validate = true
       const numMembers = memberEmails.length
       const newFile = new TeamM({
         "teamName": teamname.toLowerCase().trim(),
         "members": memberEmails,
         "scrumMaster": scrumMasterEmail.toLowerCase().trim(),
         "totalMembers": numMembers,
-        })
+        "sprints": [], 
+        }, )
         newFile.save(function(err, team) {
           if(err)
             console.error(err)
@@ -62,6 +65,7 @@ module.exports.insertTeam = async function insertTeam(teamname, memberEmails, sc
     } else {
       console.error(`${teamname} already exists`)
     }
+    return validate
 }
 
 /**
@@ -111,4 +115,12 @@ module.exports.new_team = async function new_team() {
   }
 }
 
-module.exports
+module.exports.check_email = async function check_email(emailToCheck) {
+  const validate = false
+  const query = {email: emailToCheck}
+
+  if(UserM.findOne(query)) {
+    validate = true
+  }
+  return validate
+}

@@ -44,9 +44,10 @@ module.exports.loadAllTeams = async function loadAllTeams() {
  * @description inserts a new team inside the database with a list of members, duplicate errors are handled here as well. 
  */
 module.exports.insertTeam = async function insertTeam(teamname, memberEmails, scrumMasterEmail, counter) {
-
+    const validate = false
     const query = {teamName: teamname}
     if(!(await TeamM.findOne(query))) {
+      validate = true
       const numMembers = memberEmails.length
       const newFile = new TeamM({
         "teamName": teamname.toLowerCase().trim(),
@@ -64,6 +65,7 @@ module.exports.insertTeam = async function insertTeam(teamname, memberEmails, sc
     } else {
       console.error(`${teamname} already exists`)
     }
+    return validate
 }
 
 /**

@@ -39,6 +39,17 @@ router.get('/team_portal', ensureAuth, (req, res) => {
 })
 
 /**
+ * @description Team Form
+ * @route GET /team_form
+ * @param ensureAuth middleware that will not allow any unauthenticated users through but redirect them to landing page. 
+ */
+ router.get('/team_form', ensureAuth, (req, res) => {
+    res.render('team_form', {
+        layout: 'logged-in'
+    })
+})
+
+/**
  * @description View Teams
  * @route Get /view_teams
  * @param @param ensureAuth middleware that will not allow any unauthenticated users through but redirect them to landing page.

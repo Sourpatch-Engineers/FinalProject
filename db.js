@@ -2,6 +2,7 @@
 const mongoose = require('mongoose')
 const UserM = require('./models/User')
 const TeamM = require('./models/Team')
+const User = require('./models/User')
 
 
 module.exports.openConnectionDB = async function openConnectionDB() {
@@ -112,4 +113,12 @@ module.exports.new_team = async function new_team() {
   }
 }
 
-module.exports
+module.exports.check_email = async function check_email(emailToCheck) {
+  const validate = false
+  const query = {email: emailToCheck}
+
+  if(UserM.findOne(query)) {
+    validate = true
+  }
+  return validate
+}

@@ -4,7 +4,7 @@
     </div>
     
     <div>
-        <h1>{{team_name}}</h1>
+        <h1 id="team_name">{{team_name}}</h1>
         <br>
         <h1>Product Owner: {{product_owner}}</h1>
     </div>
@@ -32,26 +32,46 @@
     {{#each sprints}}
         <div class = 'center'>
             <table>
-                <caption>Sprint {{sprintnum}}</caption>
+                <caption id="sprint_num">{{sprintnum}}</caption>
                 <thead>
                     <tr>
                         <th>Members</th>
                         <th>Star Votes</th>
                         <th>Scrum Sprint Star</th>
                         <th>Story Points</th>
+                        <th>Update</th>
                     </tr>
                 </thead>
-                <script>
-                    
-                </script>
+                
                 {{#each stars}}
+                    <form action="/update_sprint" method="post" id="sprint_update"> 
                     <tr>
-                        <td>{{name}}</td>
+                        <td id="team_member">{{name}}</td>
                         <td>{{stars}}</td>
                         <td>
-                        <input type="checkbox" id="mvp_vote">
+                        <input type="checkbox" id="mvp_vote" name="mvp_vote">
                         </td>
-                        <td><input type="text" value={{points}}></td>
+                        <td><input type="text" value={{points}} name="points"></td>
+                        <input type="hidden" id="team_name_form" name="teamName" value="">
+                        <input type="hidden" id="sprint" name="sprintnum" value="">
+                        <input type="hidden" id="name_form" name="name" value="">
+                        <td><button type="submit" name="submit" class = 'center'>Update</button></td>
+
+                        <script>
+                            var team_name = document.getElementById("team_name").innerHTML
+                            console.log(team_name)
+                            document.getElementById("team_name_form").value = team_name;
+
+                            var name = document.getElementById("team_member").innerHTML
+                            console.log(name)
+                            document.getElementById("name_form").value = name;
+                            
+                            var sprint = document.getElementById("sprint_num").innerHTML
+                            console.log(sprint)
+                            document.getElementById("sprint").value = sprint;
+
+                        </script>
+                    </form>
                     
                     </tr>
                 {{/each}}
@@ -63,7 +83,7 @@
 
     <form action="/new_sprint" method="post">
     <div class = 'center'>
-        <input type="hidden" id="members" name="teamName" value="{{team_name}}"></p>
+        <input type="hidden" id="members" name="teamName" value="{{team_name}}">
 
         <button type="submit" name="submit" class = 'center'>New Sprint</button>
     </div>

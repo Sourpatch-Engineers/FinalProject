@@ -59,6 +59,7 @@ app.use('/view_teams', require('./routes/index'))
 app.get('/proposal', handlers.proposal)
 app.get('/team_form', handlers.team_form)
 app.post('/team-form/complete', handlers.create_team)
+app.post('/update_sprint', handlers.update_sprint)
 
 
 app.get('/about', handlers.about)
